@@ -2,7 +2,7 @@
 
 include_once('src/login.php');
 include_once('test/helperEval.php');
-
+include_once('test/bootstrap.php');
 
 class loginTest extends PHPUnit_Framework_TestCase {
     
@@ -20,7 +20,7 @@ class loginTest extends PHPUnit_Framework_TestCase {
         
         $result = Evaluate(LOGIN_FILE, array());
         
-        $this->assertNotEquals(null, $result);
+        $this->assertEquals(null, $result);
     }
     //=============================================================================================
     /**
@@ -31,7 +31,7 @@ class loginTest extends PHPUnit_Framework_TestCase {
 
         $result = Evaluate(LOGIN_FILE, array_merge($post, $get));
         
-        $this->assertNotEquals(null, $result);
+        $this->assertEquals(null, $result);
         
         //search error message in response
         if ($error_search) {
