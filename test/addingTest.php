@@ -1,4 +1,5 @@
 <?php
+include_once('src/adding.php');
 
 class addingTest extends PHPUnit_Framework_TestCase {
     
