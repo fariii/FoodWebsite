@@ -16,29 +16,29 @@ class loginTest extends PHPUnit_Framework_TestCase {
      * test load page first time, without errors only standalone form
      * @runInSeparateProcess
      */    
-//    public function testLoadPage() {
+    public function testLoadPage() {
         
- //       $result = Evaluate(LOGIN_FILE, array());
+        $result = Evaluate(LOGIN_FILE, array());
         
- //       $this->assertNotEquals(null, $result);
- //   }
+        $this->assertNotEquals(null, $result);
+    }
     //=============================================================================================
     /**
      * @runInSeparateProcess
      * @dataProvider dataLoginValues
      */     
- //   public function testLoginValues($post, $get, $error_search) {
+    public function testLoginValues($post, $get, $error_search) {
 
- //       $result = Evaluate(LOGIN_FILE, array_merge($post, $get));
+        $result = Evaluate(LOGIN_FILE, array_merge($post, $get));
         
- //       $this->assertNotEquals(null, $result);
+        $this->assertNotEquals(null, $result);
         
         //search error message in response
- //       if ($error_search) {
- //           $this->assertGreaterThan(0, strpos($result, $error_search));   
- //       }
+        if ($error_search) {
+            $this->assertGreaterThan(0, strpos($result, $error_search));   
+        }
            
- //   }
+    }
     //=============================================================================================
     public function dataLoginValues() {
         
