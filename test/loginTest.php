@@ -35,7 +35,7 @@ class loginTest extends PHPUnit_Framework_TestCase {
         
         //search error message in response
         if ($error_search) {
-            $this->assertGreaterThan(0, strpos($result, $error_search));   
+            $this->assertGreaterThan(1, strpos($result, $error_search));   
         }
            
     }
