@@ -1,6 +1,7 @@
 <?php
 
 include_once('src/login.php');
+include_once('src/helperEval.php');
 
 class loginTest extends PHPUnit_Framework_TestCase {
     
