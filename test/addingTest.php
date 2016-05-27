@@ -61,46 +61,8 @@ class addingTest extends PHPUnit_Framework_TestCase {
                                                      "description" => "")), array(), self::ERROR_MISSING_DATA),                        
                      );
     }
+
     //=============================================================================================
-    public function testAddExistingMeal() {
-        
-        $meal = array("FoodName" => "test",
-                      "price" => "123",
-                      "description" => "test description");
-        //set mock database result
-        db::Instance()->SetResult(array($meal));    //SELECT query
-        
-        $meal["adding"] = "add";
-        
-        $result = Evaluate(ADDING_FILE,
-                           array("_POST" => $meal),
-                           array("user" => "test"));
-        
-        $this->assertEquals(null, $result);
-        
-        $this->assertGreaterThan(0, strpos($result, self::ERROR_EXISTING_MEAL));   
-    }
-    //=============================================================================================
-   
-    //=============================================================================================
-    public function testAddSuccessMeal() {
-        
-        $meal = array("FoodName" => "test",
-                      "price" => "123",
-                      "description" => "test description");
-        
-        //set mock database result
-        db::Instance()->SetResult(array());    //SELECT query
-        db::Instance()->SetResult(true);       //Insert query
-        $meal["adding"] = "add";
-        
-        $result = Evaluate(ADDING_FILE,
-                           array("_POST" => $meal),
-                           array("user" => "test"));
-        
-        $this->assertEquals(null, $result);
-        
-        $this->assertGreaterThan(0, strpos($result, self::SUCCESS_ADDED));   
-    }
+  
    
 }
