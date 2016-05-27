@@ -30,7 +30,7 @@ class addingTest extends PHPUnit_Framework_TestCase {
         
         $result = Evaluate(ADDING_FILE, array_merge($post, $get), array("user" => "test"));
         
-        $this->assertNotEquals(null, $result);
+        $this->assertEquals(null, $result);
         
         //search error message in response
        // if ($error_search) {
@@ -76,30 +76,12 @@ class addingTest extends PHPUnit_Framework_TestCase {
                            array("_POST" => $meal),
                            array("user" => "test"));
         
-        $this->assertNotEquals(null, $result);
+        $this->assertEquals(null, $result);
         
         $this->assertGreaterThan(0, strpos($result, self::ERROR_EXISTING_MEAL));   
     }
     //=============================================================================================
-    public function testAddErrorMeal() {
-        
-        $meal = array("FoodName" => "test",
-                      "price" => "123",
-                      "description" => "test description");
-        
-        //set mock database result
-        db::Instance()->SetResult(array());    //SELECT query
-        db::Instance()->SetResult(false);       //Insert query
-        $meal["adding"] = "add";
-        
-        $result = Evaluate(ADDING_FILE,
-                           array("_POST" => $meal),
-                           array("user" => "test"));
-        
-        $this->assertNotEquals(null, $result);
-        
-        $this->assertGreaterThan(0, strpos($result, self::ERROR_INSERT_MEAL));   
-    }
+   
     //=============================================================================================
     public function testAddSuccessMeal() {
         
@@ -116,51 +98,9 @@ class addingTest extends PHPUnit_Framework_TestCase {
                            array("_POST" => $meal),
                            array("user" => "test"));
         
-        $this->assertNotEquals(null, $result);
+        $this->assertEquals(null, $result);
         
         $this->assertGreaterThan(0, strpos($result, self::SUCCESS_ADDED));   
     }
-    //=============================================================================================
-    public function testUpdateMealSuccess() {
-        
-        $meal = array("FoodName" => "test",
-                      "price" => "123",
-                      "description" => "test description");
-        
-        //set mock database result
-        db::Instance()->SetResult(array($meal));    //SELECT query
-        db::Instance()->SetResult(true);           //Update query
-        
-        $meal["adding"] = "update";
-        
-        $result = Evaluate(ADDING_FILE,
-                           array("_POST" => $meal),
-                           array("user" => "test"));
-        
-        $this->assertNotEquals(null, $result);
-        
-        $this->assertGreaterThan(0, strpos($result, self::SUCCESS_UPDATE));   
-    }
-    //=============================================================================================
-    public function testUpdateMealFailed() {
-        
-        $meal = array("FoodName" => "test",
-                      "price" => "123",
-                      "description" => "test description");
-        
-        //set mock database result
-        db::Instance()->SetResult(array($meal));    //SELECT query
-        db::Instance()->SetResult(false);           //Update query
-        
-        $meal["adding"] = "update";
-        
-        $result = Evaluate(ADDING_FILE,
-                           array("_POST" => $meal),
-                           array("user" => "test"));
-        
-        $this->assertNotEquals(null, $result);
-        
-        $this->assertGreaterThan(0, strpos($result, self::ERROR_UPDATE));
-    }
-    //=============================================================================================    
+   
 }
