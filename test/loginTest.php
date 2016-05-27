@@ -2,6 +2,7 @@
 
 include_once('src/login.php');
 include_once('test/helperEval.php');
+include_once('test/bootstrap.php');
 
 class loginTest extends PHPUnit_Framework_TestCase {
     
