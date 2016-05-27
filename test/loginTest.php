@@ -35,16 +35,16 @@ class loginTest extends PHPUnit_Framework_TestCase {
         
         //search error message in response
         if ($error_search) {
-            $this->assertGreaterThan(1, strpos($result, $error_search));   
+            $this->assertGreaterThan(0, strpos($result, $error_search));   
         }
            
     }
     //=============================================================================================
-    public function dataLoginValues() {
+ //   public function dataLoginValues() {
         
-        return array(
+ //       return array(
                         //page without required params (first time)
-                        array(array(), array(), null),
+  //                      array(array(), array(), null),
                         
                         /**
                          * Not testable, data are not properly sanitized
@@ -52,14 +52,14 @@ class loginTest extends PHPUnit_Framework_TestCase {
                         //array(array("_POST" => array("email" => "test",
                         //                             "password" => array())), array(), null),
                         
-                        array(array("_POST" => array("email" => "",
-                                                     "password" => "")), array(), self::ERROR_MISSING_DATA),
-                        array(array("_POST" => array("email" => "test",
-                                                     "password" => "")), array(), self::ERROR_MISSING_DATA),
-                        array(array("_POST" => array("email" => "",
-                                                     "password" => "test")), array(), self::ERROR_MISSING_DATA),
+  //                      array(array("_POST" => array("email" => "",
+  //                                                   "password" => "")), array(), self::ERROR_MISSING_DATA),
+  //                      array(array("_POST" => array("email" => "test",
+    //                                                 "password" => "")), array(), self::ERROR_MISSING_DATA),
+   //                     array(array("_POST" => array("email" => "",
+    //                                                 "password" => "test")), array(), self::ERROR_MISSING_DATA),
                         
-                     );
-    }
+    //                 );
+   // }
     //=============================================================================================
 }
