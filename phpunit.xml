@@ -14,7 +14,7 @@
            <testsuite name="Food Website">
            <!--<directory>test/</directory> -->
            <file>test/loginTest.php</file>
-           <file>test/adminTest.php</file>
+           <file>test/addingTest.php</file>
            </testsuite>
      </testsuites>
 </phpunit>
