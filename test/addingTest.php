@@ -1,5 +1,7 @@
 <?php
 include_once('src/adding.php');
+include_once('test/helperEval.php');
+include_once('test/bootstrap.php');
 
 class addingTest extends PHPUnit_Framework_TestCase {
     
