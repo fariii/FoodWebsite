@@ -1,6 +1,6 @@
 <?php
 
-
+include_once('src/login.php');
 
 class loginTest extends PHPUnit_Framework_TestCase {
     
