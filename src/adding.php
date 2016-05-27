@@ -69,7 +69,7 @@
 		
 			require_once('settings.php');
 			$conn = @mysqli_connect($host, $user, $pass,$db);
-			require_once('table.php');
+		//	require_once('table.php');
 			
 			if ((isset($_POST["adding"])))
 			{
