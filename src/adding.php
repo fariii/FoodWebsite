@@ -34,8 +34,3 @@
 				}
 			}
 	 ?>
-
-		</article>	
-
-	</body>
-</html>
