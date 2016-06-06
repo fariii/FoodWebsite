@@ -1,56 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta name="keywords" content="HTML,XHTML,CSS"/>
-		<meta name="description" content="A local food webpage"/>
-		<meta name="author" content="Farinaz Jowkarishasaltaneh"/>
-		<link rel="stylesheet" type="text/css" href="" />
-		<script src="js/validate.js"></script>
-	
-		<title> Food Website </title>
-	</head>
-
-	<body id="loginform">
-		<article class="mainContent">
-			<!-- Header -->
-			<header>
-				<h1> Login Page </h1>
-			</header>
-			<!-- Header -->
-			<div class="clearCss"></div>
-			<!-- Menu -->
-			<div id="menu">
-				<nav>
-					<ul>
-						<li><a id="Link1" class="Link" href="login.php">Login Page</a></li>
-						<li><a id="Link1" class="Link" href="reg.php">Registration Page</a></li>
-						<li><a id="Link2" class="Link" href="menu.php">Order food</a></li>
-						<li><a id="Link1" class="Link" href="logout.php">Logout</a></li>
-						<li><a id="Link2" class="Link" href="profile.php">Administration</a></li>
-					</ul>
-				</nav>
-				<!-- Menu -->
-			</div>
-			
-			<div class="clearCss"></div>
-			<hr/>
-			<div class="clearCss"></div>
-			<article class="Content">
-			
-			<form method="post" action="login.php">
-			<fieldset><legend>Login Management</legend>
-				<p>	<label for="email">Email : </label>
-					<input type="text" name="email" id="email" /></p>
-					<span id="email_msg"></span>
-				<p>	<label for="password">Password : </label>
-					<input type="text" name="password" id="password" /></p>
-				<p>	<input type="submit" value="login" /></p>
-		
-	</fieldset>
-			</form>
-			
-			
-			<?php
+<?php
 			if (session_status() == PHP_SESSION_NONE) {
 			   session_start();
 			}
@@ -79,16 +27,13 @@
 								echo "The email or password are not correct";
 							 } 
 							 else if(mysqli_num_rows($result)>0 )
-							 {
-								echo "Login successful, now you can use <a href='menu.php'>menu</a> to order food ";
-								$_SESSION['email']=$email;
-							 }
+							 { ///here
+							 		header('location: menu.php');
+								
+							 }//here
 						}
 				} else {
 						echo "<p>please enter both email and password</p>";
 						}
 				}
-			?>
-
-	</body>
-</html>
+?>
